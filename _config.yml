@@ -1,0 +1,44 @@
+# Site Info
+title:              "derich pacheco's blog"
+description:        "personal ramblings and technical writings"
+author_name:        "derich pacheco"
+logo_url:           https://avatars0.githubusercontent.com/u/1730156?s=400&v=4
+github:             "https://github.com/drish"
+email:              "carlosderich@gmail.com"
+keybase:            "https://keybase.io/drish"
+twitter:            "https://twitter.com/carlosderich"
+
+# Site Settings
+url:                https://dri.sh # main url
+baseurl:
+permalink:          /:title # Post permalink
+timezone:           Canada/Toronto # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+# Site Build
+highlighter:        rouge
+markdown:           kramdown
+kramdown:
+    input:          GFM
+sass:
+    style:          :compressed
+
+# Other Params
+include:            [ "robots.txt" ]
+exclude:            [ "LICENSE", "README.md", "CNAME", "vendor", "Gemfile", "script" ]
+
+defaults:
+  -
+    scope:
+      path:         ""
+    values:
+      layout:       "null"
+  -
+    scope:
+      type:         "pages"
+    values:
+      layout:       "page"
+  -
+    scope:
+      type:         "posts"
+    values:
+      layout:       "post"
