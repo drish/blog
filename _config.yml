@@ -26,6 +26,8 @@ sass:
 include:            [ "robots.txt" ]
 exclude:            [ "LICENSE", "README.md", "CNAME", "vendor", "Gemfile", "script" ]
 
+google_analytics: UA-80715512-1
+
 defaults:
   -
     scope:
