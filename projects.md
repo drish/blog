@@ -24,6 +24,11 @@ I intend to go back to work on it this year, implementing support for [Kata Cont
 hyper.sh cloud has shutdown.
 
 <br/>
+## [dogstatsd-local](https://github.com/drish/dogstatsd-local)
+
+**dogstatsd-local** is a simple UDP Service written in **Ruby**. It is meant to help when adding instrumentation with DataDog to your project, by acting as a sidecar container printing all incoming metrics to STDOUT in a JSON prettified format. 
+
+<br/>
 ## [cloak](https://github.com/drish/cloak)
 
 
