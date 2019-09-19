@@ -26,7 +26,65 @@ hyper.sh cloud has shutdown.
 <br/>
 ## [dogstatsd-local](https://github.com/drish/dogstatsd-local)
 
-**dogstatsd-local** is a simple UDP Service written in **Ruby**. It is meant to help when adding instrumentation with DataDog to your project, by acting as a sidecar container printing all incoming metrics to STDOUT in a JSON prettified format. 
+**dogstatsd-local** is a simple UDP Service written in **Ruby**. It is meant to help when adding instrumentation with DataDog to your project, by acting as a sidecar container printing all incoming metrics to STDOUT in a JSON prettified format.
+
+Adding to your project, via docker-compose:
+
+```yml
+version: '3.4'
+
+services:
+  dogstatsd-local:
+    image: drish/dogstatsd-local
+    ports:
+      - 8125:8125/udp
+```
+
+Watch the logs:
+
+```sh
+~/drish/ » docker run -p 8125:8125 drish/dogstatsd-local
+INFO -- : initialized dogstatsd-local 0.0.0.0:8125
+INFO -- : waiting for statsd datagrams..
+```
+
+Send metrics using any statsD client
+
+```ruby
+require 'datadog/statsd'
+statsd = Datadog::Statsd.new('dogstatsd-local', 8125)
+statsd.increment('page.views')
+```
+
+Will log:
+
+```json
+I, [2019-09-18T18:44:38.221440 #1]  INFO -- : {"path":"page.views","namespace":"page","name":"views","value":1}
+```
+
+<br/>
+## [benchparser](https://github.com/drish/benchparser)
+
+**benchparser** is a **Ruby** gem that parses multiple languages benchmark outputs, e.g:
+
+a Golang benchmark output:
+
+```
+goos: darwin
+goarch: amd64
+pkg: github.com/drish/parser
+BenchmarkFib1-8     1000000000           2.48 ns/op        0 B/op        0 allocs/op
+PASS
+ok    github.com/drish/parser 9.960s
+"
+```
+
+Now to parse that:
+
+```ruby
+require 'benchparser'
+Bp.parse(data).functions.first[:iterations] # 1000000000
+```
 
 <br/>
 ## [cloak](https://github.com/drish/cloak)
