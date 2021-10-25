@@ -10,7 +10,7 @@ keybase:            "https://keybase.io/drish"
 twitter:            "https://twitter.com/carlosderich"
 
 # Site Settings
-url:                https://dri.sh # main url
+url:                https://drish.dev # main url
 baseurl:
 permalink:          /:title # Post permalink
 timezone:           Canada/Toronto # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
