@@ -6,7 +6,9 @@ personal ramblings
 
 # commands
 
-`jekyll serve` for local testing
-`jekyll build` for generating dist folder 
+if `ruby -v` >= 3 run `bundle add webrick`
 
-customized from https://heiswayi.github.io/the-plain/download-this-theme 
+`bundle exec jekyll serve` for local testing
+`bundle exec jekyll build` for generating dist folder
+
+customized from https://heiswayi.github.io/the-plain/download-this-theme
